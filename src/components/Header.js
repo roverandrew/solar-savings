@@ -4,7 +4,7 @@ import { FaSolarPanel } from 'react-icons/fa';
 import { Container, Box, Sizing } from '@material-ui/core';
 
 const Header = (props) => (
-    <header class="header">
+    <header className="header">
         <Container maxWidth="lg">
             <Box display="flex" justifyContent="space-between" bgcolor="#20222b" height="25%">
                 <Box p={1} bgcolor="#20222b" width="10%" textAlign="left">
