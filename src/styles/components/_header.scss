@@ -1,7 +1,7 @@
 .header{
     background:#20222b;
     color:white;
-    line-height: 6.4rem;
+    line-height:4.8rem;
 }
 
 .header__title{ 
@@ -13,8 +13,9 @@
 
 .header__link{
     color:white;
-    font-size:$l-size;
+    font-size:$m-size;
     text-decoration:none;
+    display:box;
 }
 
 .solar-icon{

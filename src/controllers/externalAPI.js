@@ -8,9 +8,8 @@ const fetchGeoLocation = async (geoAPIKey) => {
   return {longitude,latitude,province,region};
 }
 
-const fetchWithRetry = async ({area, capacityPerUnit, moduleType, losses, arrayType, tilt, azimuth},
-                              {longitude, latitude, province, region},
-                              annualHouseholdPowerOutput, NRELAPIKey, percentageSolar=1,retryLimit=10,retryCount=0) => {
+const fetchWithRetry = async ({area, capacityPerUnit, moduleType, losses, arrayType, tilt, azimuth,longitude, latitude, province, region,annualHouseholdPowerOutput, NRELAPIKey, 
+                              percentageSolar=1,retryLimit=10,retryCount=0} = {}) => {
 
     const systemCapacity = capacityPerUnit*area*percentageSolar; 
     const res = await fetch(`https://developer.nrel.gov/api/pvwatts/v6.json?api_key=${NRELAPIKey}&lat=${latitude}&lon=${longitude}&system_capacity=${systemCapacity}&azimuth=${azimuth}&tilt=${tilt}&array_type=${arrayType}&module_type=${moduleType}&losses=${losses}`)
@@ -23,7 +22,7 @@ const fetchWithRetry = async ({area, capacityPerUnit, moduleType, losses, arrayT
 
         return fetchWithRetry(area, capacityPerUnit, moduleType, losses, arrayType, tilt, azimuth,
                               longitude, latitude, province, region,
-                              AnnualHouseholdPowerOutput, NRELAPIKey, percentageSolar=1,retryLimit=10,retryCount=0);
+                              annualHouseholdPowerOutput, NRELAPIKey, percentageSolar=1,retryLimit=10,retryCount=0);
     }
         
     return {powerData,percentageSolar} 

@@ -1,8 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
-
 import Header from '../components/Header';
-import HouseDataForm from '../components/HouseDataForm';
 import InfoPage from '../components/InfoPage';
 import NotFoundPage from '../components/NotFoundPage';
 import SavingsDashboardPage from '../components/SavingsDashboardPage';
