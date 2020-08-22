@@ -4,31 +4,36 @@ const getTotalRoofCost = (standardRoofCost, solarPortionRoofCost, standardPortio
 
     const teslaRoofAnnualSavings = annualPowerOutput*(provincialElectricityCostPerkWh[currentProvince]);
     let totalCombinedRoofCost = solarPortionRoofCost + standardPortionRoofCost;
-    
-    let teslaRoofTotalCost = new Array(51);
+    let totalCombinedTMV = totalCombinedRoofCost;
+
+    let teslaRoofTotalCost = new Array(11), teslaRoofTotalCostTMV = new Array(11);
+
     teslaRoofTotalCost[0] = totalCombinedRoofCost;
-    for(let i=1;i<teslaRoofTotalCost.length;i++){
-        totalCombinedRoofCost = totalCombinedRoofCost - teslaRoofAnnualSavings;
-        teslaRoofTotalCost[i] = totalCombinedRoofCost;
-    }
- 
-    //Generate cost data for the standard roof (constant).
-    let standardRoofTotalCost = new Array(51);
-    for(let i=0;i<standardRoofTotalCost.length;i++){
-        standardRoofTotalCost[i] = standardRoofCost;
-    }
-
-    //Generate labels for the graph (x-axis units) at 2 year increments.
-    let labels = new Array(51);
-    for(let i = 0;i<labels.length;i++){
-        labels[i] = i;
-    }
-
-    const solarSavingsEnd = standardRoofTotalCost[standardRoofTotalCost.length-1] - teslaRoofTotalCost[teslaRoofTotalCost.length-1];
-    const solarSavingsHalfway = standardRoofTotalCost[(standardRoofTotalCost.length-1)/2] - teslaRoofTotalCost[(teslaRoofTotalCost.length-1)/2];
+    teslaRoofTotalCostTMV[0] = totalCombinedTMV;
     
-    const data = {standard:standardRoofTotalCost,tesla:teslaRoofTotalCost,labels,solarSavingsEnd,solarSavingsHalfway};
-    return data; //All data points are for the start of the year
+    let j = 0, r = 0.03;
+
+    for(let i=1;i<=50;i++){
+        totalCombinedRoofCost = totalCombinedRoofCost - teslaRoofAnnualSavings;
+        totalCombinedTMV = totalCombinedTMV - ( teslaRoofAnnualSavings/ (Math.pow((1+r),i)) );
+        if((i%5==0)){
+            j++;
+            teslaRoofTotalCostTMV[j] = totalCombinedTMV;
+            teslaRoofTotalCost[j] = totalCombinedRoofCost;
+        }
+    }
+
+    //Generate cost data for the standard roof (constant).
+    let standardRoofTotalCost = new Array(11);
+    standardRoofTotalCost.fill(standardRoofCost)
+
+    const costData = {
+        standard:standardRoofTotalCost,
+        tesla:teslaRoofTotalCost,
+        teslaTMV:teslaRoofTotalCostTMV
+    };
+
+    return costData; //All data points are for the start of the year
 }
 
 const getAnnualHouseholdPowerOutput = (monthlyElectricityBill,currentProvince) => {

@@ -2,13 +2,22 @@ import React from 'react';
 import HouseDataForm from './HouseDataForm';
 import ChartInfo from './ChartInfo';
 import Chart from './Chart';
+import { connect } from 'react-redux';
 
-const SavingsDashboardPage = () => (
+const SavingsDashboardPage = (props) => (
     <div>
         <HouseDataForm />
-        <Chart />
-        <ChartInfo />
+
+            { props.isChartDisplayed && <React.Fragment>
+                <Chart />
+                <ChartInfo />
+            </React.Fragment>
+            }
     </div>
 );
 
-export default SavingsDashboardPage;
+const mapStateToProps = (state) => ({
+    isChartDisplayed: !!state.longitude
+});
+
+export default connect(mapStateToProps)(SavingsDashboardPage)

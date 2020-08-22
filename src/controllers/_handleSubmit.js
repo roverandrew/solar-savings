@@ -37,7 +37,7 @@ const _handleSubmit = async (values) => {
                                      (1-percentageSolar)*standardRoof.calculateCost(),
                                      powerData.outputs.ac_annual,
                                      province);
-    return costData;
+    return { costData, percentageSolar, longitude, latitude, province, region };
 }
 
 export default _handleSubmit;

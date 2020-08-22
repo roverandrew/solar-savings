@@ -1,9 +1,15 @@
 const initState = {
     unitsMetric: true,
-    solarSavingsEnd: null,
-    solarSavingsHalfway: null,
-    standard: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
-    tesla:    [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+    costData: {
+        standard: new Array(11),
+        tesla: new Array(11),
+        teslaTMV: new Array(11)
+    },
+    percentageSolar: null,
+    longitude: null,
+    latitude: null,
+    province: null,
+    region: null
 }
 
 const rootReducer = (state=initState, action) => {
@@ -11,10 +17,7 @@ const rootReducer = (state=initState, action) => {
         case 'UPDATE_DATA':
             return {
                 ...state,
-                solarSavingsEnd:action.solarSavingsEnd,
-                solarSavingsHalfway:action.solarSavingsHalfway,
-                standard:action.standard,
-                tesla:action.tesla
+                ...action
             }
         case 'SET_UNITS':
             return{

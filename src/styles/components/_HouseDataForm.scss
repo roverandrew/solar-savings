@@ -7,12 +7,25 @@
     margin-bottom:2%;
     font-size: $xl-size;
     line-height: normal;
+    color:rgba(0, 0, 0, 0.87)
 }
 
-.MuiTypography-root MuiFormControlLabel-label MuiTypography-body1{
-    font-size: 2rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    font-weight: 400;
-    line-height: 1.5;
-    letter-spacing: 0.00938em;
+#input-label{
+    color:rgba(0, 0, 0, 0.87)
+}
+
+.dataInfo{
+    margin-top: $m-size;
+}
+
+.dataInfo > h3{
+    margin-top: $m-size;
+    display:inline;
+    font-size: $m-size;
+}
+
+.dataInfo > p{
+    margin-top: $m-size;
+    display:inline;
+    font-size: $m-size;
 }
