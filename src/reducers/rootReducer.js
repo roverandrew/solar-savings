@@ -5,7 +5,6 @@ const initState = {
         tesla: new Array(11),
         teslaTMV: new Array(11)
     },
-    percentageSolar: null,
     longitude: null,
     latitude: null,
     province: null,

@@ -30,26 +30,33 @@ const Chart = (props) => {
                 display: true,
                 text: 'Tesla Solar Shingles vs Traditional Roof Time-Cost Data',
                 fontSize: 30,
-                fontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'"
+                fontFamily: "Helvetica, Arial, sans-serif",
+                fontColor: "rgba(0,0,0,0.87)"
             },
             responsive: true,
             maintainAspectRatio: false,
             scales: {
-                yAxes: [
-                    {
+                yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Cost ($ CAD)'
+                        },
                         ticks: {
                             beginAtZero: true,
-                            fontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'",
+                            fontFamily: "Helvetica, Arial, sans-serif"
                         }
-                    }
-                ],
-                xAxes: [
-                    {
+                        
+                    }],
+                xAxes: [{
                         ticks: {
-                            beginAtZero: true
+                            beginAtZero: false,
+                            fontFamily: "Helvetica, Arial, sans-serif"
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Years'
                         }
-                    }
-                ]
+                    }]
             }
         };
         return(
@@ -60,7 +67,7 @@ const Chart = (props) => {
                         options={options}
                         width={400}
                         height={400}
-                        options={{ maintainAspectRatio: false }}
+                        options={options}
                     />
                 </Container>      
             </div>

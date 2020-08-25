@@ -1,3 +1,14 @@
 .dataInfo * {
     display: inline;
+    margin-top:0;
+    margin-bottom:$s-size;
+}
+
+#what-is-solar{
+    margin-bottom: 0;
+}
+
+#subscript{
+    font-size: $s-size;
+    margin-top: 0;
 }

@@ -26,7 +26,6 @@ class HouseDataForm extends React.Component{
               
               const data = await _handleSubmit(valuesCopy);
               this.handleUpdateData(data);
-              values = null;
               setSubmitting(false);
             }}
           >

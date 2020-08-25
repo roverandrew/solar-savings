@@ -1,13 +1,13 @@
 html {
   font-size: 62.5%;
   background-color:rgb(250,250,250);
-  
 }
 
 body {
   font-family: Helvetica, Arial, sans-serif;
-  font-size: $m-size;
-  line-height:$m-size;
+  font-size: $ml-size;
+  line-height:$xl-size;
+  color:rgba(0,0,0,0.87);
 }
 
 button {
@@ -20,4 +20,9 @@ button:disabled {
 
 .is-active {
   text-decoration: underline !important;
+}
+
+.icons i,
+.icons svg {
+   color: white;
 }

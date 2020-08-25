@@ -1,5 +1,6 @@
 import React from 'react';
 import HouseDataForm from './HouseDataForm';
+import WhatIsSolarSavings from './WhatIsSolarSavings';
 import ChartInfo from './ChartInfo';
 import Chart from './Chart';
 import { connect } from 'react-redux';
@@ -8,10 +9,13 @@ const SavingsDashboardPage = (props) => (
     <div>
         <HouseDataForm />
 
-            { props.isChartDisplayed && <React.Fragment>
-                <Chart />
-                <ChartInfo />
-            </React.Fragment>
+            { props.isChartDisplayed ?
+                <React.Fragment>
+                    <Chart />
+                    <ChartInfo />
+                </React.Fragment> 
+                :
+                <WhatIsSolarSavings />
             }
     </div>
 );
