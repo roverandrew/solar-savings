@@ -17,26 +17,20 @@ class HouseDataForm extends React.Component{
             initialValues={{roofType:'slate',monthlyElectricityBill:'',houseLength:'',houseWidth:''}} 
             onSubmit={async (values, { setSubmitting }) => { //gets called whenever your form is submitted make an async call
               setSubmitting(true);
-
-              const valuesInMetric = { ...values};
-              console.log("values in metric")
-              console.log(valuesInMetric);
+              const valuesCopy = { ...values};
 
               if(!(this.props.unitsMetric)){
-                valuesInMetric.houseLength = valuesInMetric.houseLength*0.3048;
-                valuesInMetric.houseWidth = valuesInMetric.houseWidth*0.3048;
+                valuesCopy.houseLength = valuesCopy.houseLength*0.3048;
+                valuesCopy.houseWidth = valuesCopy.houseWidth*0.3048;
               }
-              const data = await _handleSubmit(valuesInMetric);
-              console.log("all data");
-              console.log(data);
+              
+              const data = await _handleSubmit(valuesCopy);
               this.handleUpdateData(data);
               values = null;
               setSubmitting(false);
             }}
           >
           {({ values, isSubmitting, handleChange, handleBlur, handleSubmit, setFieldValue }) => {
-            console.log('This is the values props of a formik form');
-            console.log(values)
             return(
               <Form>
                 <h1 className="form__title"> Solar Roof Cost of Ownership Calculator</h1>

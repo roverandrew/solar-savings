@@ -3,7 +3,7 @@ import Roof from './Roof';
 export default class SolarRoof extends Roof{
     constructor(area){
       super(area);
-      this.capacityPerUnit=0.0538105;
+      this.systemCapacity=null;
       this.moduleType=1;
       this.losses=21.6;
       this.arrayType=1;

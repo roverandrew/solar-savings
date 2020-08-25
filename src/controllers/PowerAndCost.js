@@ -36,9 +36,17 @@ const getTotalRoofCost = (standardRoofCost, solarPortionRoofCost, standardPortio
     return costData; //All data points are for the start of the year
 }
 
+const getSolarArea = (capacity) => {
+    const solarShingleCapacity = 0.024;
+    const solarShingleArea = 1.14*0.43
+    const numOfPanels = capacity / solarShingleCapacity;
+    const solarArea = numOfPanels * solarShingleArea;
+    return solarArea;
+}
+
 const getAnnualHouseholdPowerOutput = (monthlyElectricityBill,currentProvince) => {
-    var annualOutput = ( monthlyElectricityBill/(provincialElectricityCostPerkWh[currentProvince]) )*12;
+    var annualOutput = ( (monthlyElectricityBill) / (provincialElectricityCostPerkWh[currentProvince]) ) * 12;
     return annualOutput;
 }
 
-export { getTotalRoofCost, getAnnualHouseholdPowerOutput };
+export { getSolarArea, getTotalRoofCost, getAnnualHouseholdPowerOutput };
