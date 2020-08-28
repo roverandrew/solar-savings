@@ -13,7 +13,7 @@ const Header = (props) => {
             <Container maxWidth="lg">
                 <Box display="flex" justifyContent="space-between" bgcolor="#20222b">
                     <Box p={1} bgcolor="#20222b" width="33.33%" textAlign="left">
-                        <NavLink to="/help" className="header__link" activeClassName="is-active">Documentation</NavLink>
+                        <NavLink to="/help" className="header__link" activeClassName="is-active">How Does It Work?</NavLink>
                     </Box>
                     <Box p={1} bgcolor="#20222b" width="33.33%" textAlign="center">
                         <FaSolarPanel className="solar-icon" />

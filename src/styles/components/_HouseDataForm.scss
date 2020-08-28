@@ -29,3 +29,15 @@
     display:inline;
     font-size: $m-size;
 }
+
+.info{
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: $ml-size;
+    line-height:$xl-size;
+    color:rgba(0,0,0,0.87);
+}
+
+.error{
+    color:#f44336;
+    margin-top: $xs-size;
+}

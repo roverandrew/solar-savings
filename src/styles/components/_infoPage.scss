@@ -1,0 +1,53 @@
+
+h1,h2,h3,h4,h5,h6{
+    margin-bottom:$xs-size;
+    margin-top:0;
+}
+
+
+p{
+    margin-top:$xs-size;
+    margin-bottom:0;
+}
+
+ul{
+    margin-top:$xs-size;
+}
+
+li > span{
+    text-decoration: underline;
+}
+
+.documentation{
+    margin-top:$xl-size;
+    margin-bottom: 0;
+}
+
+.cost{
+    margin-bottom:$l-size;
+}
+
+.cost__title{
+    text-decoration: underline;
+    font-size: $l-size;
+    margin-bottom:$l-size;
+}
+
+.info-section{
+    margin-top:$l-size;
+}
+
+.eqn{
+    margin-top:$l-size;
+}
+
+.eqn-section{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#note{
+    font-size:$s-size;
+}
+
+

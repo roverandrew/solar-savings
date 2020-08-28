@@ -8,7 +8,7 @@ const useStyles = makeStyles({
     textTransform: 'capitalize',
     fontSize:'1.2rem',
     color:'rgba(0, 0, 0, 0.87)',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   }
 });
 

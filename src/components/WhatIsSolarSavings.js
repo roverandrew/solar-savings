@@ -3,11 +3,11 @@ import { Container } from '@material-ui/core';
 
 const WhatIsSolarSavings = () => (
     <Container maxWidth="lg">
-        <h3 id="what-is-solar">What is Solar Savings?</h3>
-        <p>Mass adoption of renewable energy is always going to be dependant on economic competiveness with non-renewable alternatives. 
-            SolarSavings therefore looks to answer the question "Are solar roofs worth it?". 
-            Using the inputted data above and geolocation specific data on solar irradiance, cost of electricity and more, 
-            SolarSavings calculates and visualizes the economic viability of Tesla's solar shingle roof.
+        <h2 id="what-is-solar">What is Solar Savings?</h2>
+        <p className="info">Adoption of renewable energy is dependant on it's economic competiveness compared to non-renewable alternatives. 
+            Solar Savings therefore looks to answer the question "Are solar roofs worth it?". 
+            Using the inputted data above and a host of geolocation specific solar data, 
+            Solar Savings calculates and visualizes the economic viability of Tesla's solar shingle roof.
         </p>
     </Container>
 );
