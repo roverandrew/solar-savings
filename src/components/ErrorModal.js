@@ -11,7 +11,7 @@ const ErrorModal = (props) => (
     appElement={document.getElementById('app')}
   >
     <h3 className="modal__title">Error fetching geo-location, please try again.</h3>
-    <button className="button" onClick={props.handleClearSelectedOption}>Okay</button>
+    <button className="button" onClick={props.handleCloseModal}>Okay</button>
   </Modal>
 );
 
