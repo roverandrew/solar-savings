@@ -7,9 +7,6 @@ import Location from '../Models/Location';
 import { fetchGeoLocation,fetchCapacity } from './externalAPI';
 import { getSolarPortionInfo, getTotalRoofCost, getAnnualHouseholdPowerOutput } from './PowerAndCost';
 
-const NRELAPIKey = 'nANSd1IKE1BAzkWI5BwrefIJDaTXhuEJd4O89gQv';
-const geoAPIKey = '6a4dd82597fcfab0321c961633972c01020023e2';
-
 const _handleSubmit = async (values) => {
     const monthlyElectricityBill = values.monthlyElectricityBill;
             
@@ -18,13 +15,13 @@ const _handleSubmit = async (values) => {
     let standardRoof = new StandardRoof(roof.area,values.roofType);
     let solarRoof = new SolarRoof(roof.area);
     
-    let { longitude,latitude,province,region } = await fetchGeoLocation(geoAPIKey);
+    let { longitude,latitude,province,region } = await fetchGeoLocation();
     const location = new Location(longitude,latitude,province,region);
     
     let annualHouseholdPowerOutput = getAnnualHouseholdPowerOutput(monthlyElectricityBill,province);
     solarRoof.systemCapacity = annualHouseholdPowerOutput/1000;
 
-    const allData = {...solarRoof,...location,annualHouseholdPowerOutput,NRELAPIKey}
+    const allData = {...solarRoof,...location,annualHouseholdPowerOutput}
 
     const { solarAnnualOutput, systemCapacity }= await fetchCapacity(allData);
     

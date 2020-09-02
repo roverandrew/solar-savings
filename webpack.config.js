@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = (env) => {
-    const isProduction = env === 'production';
+    const isProduction = env === false;
     return{
         entry: './src/app.js', //What gets loaded and executed by default.
         output: {
