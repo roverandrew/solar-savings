@@ -22,7 +22,6 @@ const _handleSubmit = async (values) => {
     solarRoof.systemCapacity = annualHouseholdPowerOutput/1000;
 
     const allData = {...solarRoof,...location,annualHouseholdPowerOutput}
-
     const { solarAnnualOutput, systemCapacity }= await fetchCapacity(allData);
     
     const solarRoofCost = getSolarPortionInfo(systemCapacity,roof.area);

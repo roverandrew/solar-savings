@@ -10,22 +10,19 @@ import _handleSubmit from '../controllers/_handleSubmit';
 const validationSchema = yup.object().shape({
   monthlyElectricityBill: yup
     .number()
-    .min(10,'Too Short!')
-    .max(10000,'Too Long!')
-    .required('Required!')
-    .positive(),
+    .min(10,'Value must be greater than or equal to 10')
+    .max(10000,'Value must be less than or equal to 10000')
+    .required('Required'),
   houseLength: yup
     .number()
-    .min(5,'Too Short!')
-    .max(100,'Too Long!')
-    .required('Required!')
-    .positive(),
+    .min(5,'Value must be greater than or equal to 5')
+    .max(100,'Value must be less than or equal to 100')
+    .required('Required'),
   houseWidth: yup
     .number()
-    .min(5,'Too Short!')
-    .max(100,'Too Long!')
-    .required('Required!')
-    .positive(),
+    .min(5,'Value must be greater than or equal to 5')
+    .max(100,'Value must be less than or equal to 100')
+    .required('Required'),
 });
 
 class HouseDataForm extends React.Component{

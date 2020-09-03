@@ -1,5 +1,5 @@
 const fetchGeoLocation = async () => {
-  let response = await fetch(`/weather`);
+  let response = await fetch("/location");
   let json = await response.json();
   const  { longitude, latitude } = json.location;
   const province = json.area.code;
@@ -9,9 +9,8 @@ const fetchGeoLocation = async () => {
 
 const fetchCapacity = async ({area, systemCapacity, moduleType, losses, arrayType, tilt, azimuth,
                               longitude, latitude, province, region, annualHouseholdPowerOutput, retryLimit=50,retryCount=0} = {}) => {
-                                const apiURL = `https://developer.nrel.gov/api/pvwatts/v6.json?api_key=${nrelAPIKey}&lat=${latitude}&lon=${longitude}&system_capacity=${systemCapacity}&azimuth=${azimuth}&tilt=${tilt}&array_type=${arrayType}&module_type=${moduleType}&losses=${losses}`;
 
-    const res = await fetch(`power/${latitude},${longitude},${systemCapacity},${azimuth},${tilt},${arrayType},${moduleType},${losses}`);
+    const res = await fetch(`/power?latitude=${latitude}&longitude=${longitude}&systemCapacity=${systemCapacity}&azimuth=${azimuth}&tilt=${tilt}&arrayType=${arrayType}&moduleType=${moduleType}&losses=${losses}`);
     const powerData = await res.json();
     
     //If the outputted power by the solar shingles is greater than what the house outputs, make the system capacity smaller

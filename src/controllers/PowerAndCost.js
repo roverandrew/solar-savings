@@ -36,7 +36,7 @@ const getTotalRoofCost = (standardRoofCost, solarRoofCost, solarAnnualPowerOutpu
 }
 
 const getSolarPortionInfo = (capacity,totalRoofArea) => {
-    const costPerkW = 2640;
+    const costPerkW = 2000;
     const solarRoofCost = capacity*costPerkW;
    
     return solarRoofCost;

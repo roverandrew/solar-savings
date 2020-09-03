@@ -42,7 +42,7 @@ const InfoPage = () => (
             <h3 className="cost__title">Calculating Solar Roof Cost</h3>
             
             <div className="info-section">
-                <img src="https://latex.codecogs.com/svg.latex?\fn_phv&space;\small&space;upfrontCost&space;=&space;solarSystemkWCapacity*\frac{\left&space;(&space;testlaClaimedCost=2640CAD&space;\right&space;)}{kW}" title="\small upfrontCost = solarSystemkWCapacity*\frac{\left ( testlaClaimedCost=2640CAD \right )}{kW}" />
+                <img src="https://latex.codecogs.com/svg.latex?\fn_phv&space;\small&space;upfrontCost&space;=&space;solarSystemkWCapacity*\frac{\left&space;(&space;testlaClaimedCost=2000CAD&space;\right&space;)}{kW}" title="\small upfrontCost = solarSystemkWCapacity*\frac{\left ( testlaClaimedCost=2000CAD \right )}{kW}" />
             </div>
                 <div className="info-section">
                     <h3>Monthly Electricity Bill</h3>
