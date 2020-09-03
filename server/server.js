@@ -3,6 +3,7 @@ const express = require('express');
 const fetch = require('node-fetch');
 const app = express();
 require('dotenv').config()
+const port = process.env.PORT || 3000;
 
 const publicPath = path.join(__dirname, '..', 'public');
 app.use(express.static(publicPath));
@@ -24,6 +25,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(publicPath, 'index.html'));
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log('Server is up!');
 });
