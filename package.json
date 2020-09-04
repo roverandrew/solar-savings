@@ -1,7 +1,6 @@
 {
   "name": "indecision-app",
   "version": "1.0.0",
-  "proxy": "https://developer.nrel.gov",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
