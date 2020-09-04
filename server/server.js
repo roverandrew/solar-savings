@@ -12,7 +12,7 @@ app.use(express.static(publicPath));
 app.use(express.static(buildPath));
 
 app.get('/location', async (req, res) => {
-  let fetchedLocationData = await fetch(`https://api.getgeoapi.com/api/v2/ip/check?api_key=nANSd1IKE1BAzkWI5BwrefIJDaTXhuEJd4O89gQv`);
+  let fetchedLocationData = await fetch(`https://api.getgeoapi.com/api/v2/ip/check?api_key=6a4dd82597fcfab0321c961633972c01020023e2`);
   let locationData = await fetchedLocationData.json();
   res.json(locationData);
 });
