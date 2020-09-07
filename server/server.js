@@ -4,7 +4,6 @@ const fetch = require('node-fetch');
 const app = express();
 require('dotenv').config()
 const port = process.env.PORT || 3000;
-
 const publicPath = path.join(__dirname, '..', 'public');
 const buildPath = path.join(__dirname, '..', 'build');
 
@@ -12,7 +11,8 @@ app.use(express.static(publicPath));
 app.use(express.static(buildPath));
 
 app.get('/location', async (req, res) => {
-  let fetchedLocationData = await fetch(`https://api.getgeoapi.com/api/v2/ip/check?api_key=${process.env.GEO_API_KEY}`);
+  const { latitude, longitude } = req.query;
+  let fetchedLocationData = await fetch(`https://api.geoapify.com/v1/geocode/reverse?lat=${latitude}&lon=${longitude}&lang=de&limit=10&apiKey=${process.env.GEO_API_KEY}`);
   let locationData = await fetchedLocationData.json();
   res.json(locationData);
 });

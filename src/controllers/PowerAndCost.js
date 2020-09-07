@@ -1,4 +1,4 @@
-const provincialElectricityCostPerkWh = {"CA-AB":0.167,"CA-BC":0.124,"CA-MB":0.096,"CA-NB":0.127,"CA-NL":0.138,"CA-NS":0.150,"CA-NT":0.387,"CA-NU":0.375,"CA-ON":0.125,"CA-PE":0.168,"CA-QC":0.073,"CA-SK":0.182};
+const provincialElectricityCostPerkWh = {"Alberta":0.167,"British Columbia":0.124,"Manitoba":0.096,"New Brunswick":0.127,"Newfoundland and Labrador":0.138,"Nova Scotia":0.150,"Northwest Territories":0.387,"Nunavut":0.375,"Ontario":0.125,"Prince Edward Island":0.168,"Québec":0.073,"Saskatchewan":0.182};
 
 const getTotalRoofCost = (standardRoofCost, solarRoofCost, solarAnnualPowerOutput,currentProvince) => { 
 

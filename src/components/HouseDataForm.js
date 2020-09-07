@@ -25,15 +25,25 @@ const validationSchema = yup.object().shape({
     .required('Required'),
 });
 
+
 class HouseDataForm extends React.Component{
   state = {
-    error: false
+    error: false,
+    lon: undefined,
+    lat: undefined
   }
   handleCloseModal = () => {
     this.setState(() => ({error:false}))
   }
   handleUpdateData(data){
       this.props.updateData(data);
+  }
+  async componentDidMount(){
+    navigator.geolocation.getCurrentPosition((position) => {
+          let lon = position.coords.longitude;
+          let lat = position.coords.latitude;
+          this.setState(()=>({lon:lon,lat:lat}));
+      });
   }
   render(){
     return(
@@ -46,6 +56,7 @@ class HouseDataForm extends React.Component{
             validationSchema={validationSchema} 
             onSubmit={async (values, { setSubmitting }) => { //gets called whenever your form is submitted make an async call
               setSubmitting(true);
+              
               const valuesCopy = { ...values};
               
               if(!(this.props.unitsMetric)){
@@ -54,7 +65,7 @@ class HouseDataForm extends React.Component{
               }
 
               try{
-                const data = await _handleSubmit(valuesCopy);
+                const data = await _handleSubmit(valuesCopy,this.state.lon,this.state.lat);
                 this.handleUpdateData(data);
               }catch(err){
                 console.log("error getting geo-location!!!")

@@ -1,10 +1,12 @@
-const fetchGeoLocation = async () => {
-  let response = await fetch("/location");
+const fetchGeoLocation = async (longitude, latitude) => {
+  let response = await fetch(`/location?latitude=${latitude}&longitude=${longitude}`);
   let json = await response.json();
-  const  { longitude, latitude } = json.location;
-  const province = json.area.code;
-  const region  = json.city.name;
-  return {longitude,latitude,province,region};
+  const  { city, state } = json.features[0].properties;
+  console.log(city);
+  console.log(state);
+  const province = state;
+  const region  = city;
+  return {province,region};
 }
 
 const fetchCapacity = async ({area, systemCapacity, moduleType, losses, arrayType, tilt, azimuth,

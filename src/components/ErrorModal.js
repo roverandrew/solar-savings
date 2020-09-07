@@ -10,8 +10,8 @@ const ErrorModal = (props) => (
     className="modal"
     appElement={document.getElementById('app')}
   >
-    <h3 className="modal__title">Error fetching geo-location, please try again.</h3>
-    <button className="button" onClick={props.handleCloseModal}>Okay</button>
+    <h3 className="modal__title">Error fetching geo-location, click the button below to refresh the page and try again.</h3>
+    <button className="button" onClick={"window.location.reload();"}>Refresh!</button>
   </Modal>
 );
 
