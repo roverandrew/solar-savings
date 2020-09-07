@@ -42,7 +42,8 @@ class HouseDataForm extends React.Component{
     navigator.geolocation.getCurrentPosition((position) => {
           let lon = position.coords.longitude;
           let lat = position.coords.latitude;
-          this.setState(()=>({lon:lon,lat:lat}));
+          if((lat!=null) && (lon!=null)) this.setState(()=>({lon:lon,lat:lat}));
+          else this.setState(() => ({error:true}));
       });
   }
   render(){
