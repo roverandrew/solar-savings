@@ -80,7 +80,7 @@ class HouseDataForm extends React.Component{
                 <h1 className="form__title"> Solar Roof Cost of Ownership Calculator</h1>
                 <Grid container spacing={3}>
                   
-                  <Grid item xs={12} s={6} m={6} l={6} xl={6}>
+                  <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                   <InputLabel shrink ><h1 id="input-label">Select a roof type</h1></InputLabel>
                       <RadioGroup row defaultValue="top">
                         <RoofTypeRadio name="roofType" label="asphalt" type="radio" value="asphalt" size="medium" />
@@ -89,13 +89,13 @@ class HouseDataForm extends React.Component{
                       </RadioGroup> 
                   </Grid>
 
-                  <Grid item xs={12} s={6} m={6} l={6} xl={6}>
+                  <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                     <InputLabel shrink ><h1 id="input-label">Enter your monthly electricity bill</h1></InputLabel>
                     <Field name="monthlyElectricityBill" type="number" fullWidth={true} as={TextField}/>
                     {errors.monthlyElectricityBill && touched.monthlyElectricityBill ? (<div className="error">{errors.monthlyElectricityBill}</div>) : null}
                   </Grid>
 
-                  <Grid item xs={12} s={6} m={6} l={6} xl={6}>
+                  <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                     <InputLabel shrink ><h1 id="input-label">Enter the <i>approximate</i> length of your house</h1></InputLabel>
                     <Field 
                       type="number" 
@@ -107,7 +107,7 @@ class HouseDataForm extends React.Component{
                     {errors.houseLength && touched.houseLength ? (<div className="error">{errors.houseLength}</div>) : null}
                   </Grid>
 
-                  <Grid item xs={12} s={6} m={6} l={6} xl={6}>
+                  <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                     <InputLabel shrink ><h1 id="input-label">Enter the <i>approximate</i> width of your house</h1></InputLabel>
                     <Field 
                       type="number" 
